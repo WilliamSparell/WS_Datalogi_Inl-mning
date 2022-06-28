@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WS_Datalogi_Inlämning
+﻿namespace WS_Datalogi_Inlämning
 {
     public class BinarySearchTree<T> : IBST_G<T> where T : IComparable<T>
     {
@@ -12,21 +6,11 @@ namespace WS_Datalogi_Inlämning
         private Node<T>? Root = null;
         private Node<T>? Current = null;
 
-        public int Count()
-        {
-            return Counter;
-        }
-
-        public bool Exists(T value)
-        {
-            throw new NotImplementedException();
-        }
-
         public void Insert(T value)
         {
             Node<T> newNode = new Node<T>(value);
-            if (Root == null) 
-            { 
+            if (Root == null)
+            {
                 Root = newNode;
                 Counter++;
             }
@@ -83,13 +67,26 @@ namespace WS_Datalogi_Inlämning
                 }
             }
         }
-        //public int CompareTo()
-        //{
-        //    if (other = null) return -1;
-        //    if (id < other.id) return -1;
-        //    else if (id > other.id) return 1;
-        //    else return 0;
+        public bool Exists(T value)
+        {
+            Current = Root;
+            if (Current == null)
+                return false;
 
-        //}
+            while (Current != null)
+            {
+                if (value.CompareTo(Current.Data) == 0)
+                    return true;
+                else if (value.CompareTo(Current.Data) < 0)
+                    Current = Current.LeftChild;
+                else
+                    Current = Current.RightChild;
+            }
+            return false;
+        }
+        public int Count()
+        {
+            return Counter;
+        }
     }
 }

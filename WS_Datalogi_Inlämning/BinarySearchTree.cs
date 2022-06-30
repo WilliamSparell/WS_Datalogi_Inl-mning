@@ -47,22 +47,7 @@
                     }
                     else
                     {
-                        if (Current.RightChild == null)
-                        {
-                            Current.RightChild = newNode;
-                            Counter++;
-                            break;
-                        }
-                        else if (Current.LeftChild == null)
-                        {
-                            Current.LeftChild = newNode;
-                            Counter++;
-                            break;
-                        }
-                        else
-                        {
-                            Current = Current.RightChild;
-                        }
+                        break;
                     }
                 }
             }
@@ -79,7 +64,7 @@
                     return true;
                 else if (value.CompareTo(Current.Data) < 0)
                     Current = Current.LeftChild;
-                else
+                else 
                     Current = Current.RightChild;
             }
             return false;

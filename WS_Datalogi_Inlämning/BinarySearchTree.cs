@@ -45,7 +45,7 @@
                             Current = Current.RightChild;
                         }
                     }
-                    else
+                    else // Tillåter inte likadana värden
                     {
                         break;
                     }

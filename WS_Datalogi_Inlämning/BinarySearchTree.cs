@@ -4,7 +4,6 @@
     {
         private int Counter = 0;
         private Node<T>? Root = null;
-        private Node<T>? Current = null;
 
         public void Insert(T value)
         {
@@ -16,7 +15,7 @@
             }
             else
             {
-                Current = Root;
+                var Current = Root;
                 while (true)
                 {
                     if (value.CompareTo(Current.Data) < 0)
@@ -54,7 +53,7 @@
         }
         public bool Exists(T value)
         {
-            Current = Root;
+            var Current = Root;
             if (Current == null)
                 return false;
 
